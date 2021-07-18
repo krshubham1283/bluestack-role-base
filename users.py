@@ -1,12 +1,14 @@
-from roles import Role, RolesManager
+from roles import RolesManager
 
 
 class UsersManager(object):
+    """Class to manage the users"""
 
     all_users = dict()
 
     @classmethod
     def create_user(cls):
+        """Create user by user input"""
         while True:
             _user_name = input("\nEnter User Name:").strip()
             if len(_user_name) > 0:
@@ -21,6 +23,12 @@ class UsersManager(object):
 
     @classmethod
     def save_user(cls, user_name, roles):
+        """
+        Save user with all the data
+        :param user_name: Name of the user
+        :param roles: Roles for the users
+        :return:
+        """
         if user_name in cls.all_users.keys():
             _user = cls.all_users[user_name]
         else:
@@ -31,14 +39,17 @@ class UsersManager(object):
 
     @classmethod
     def get_all_users(cls):
+        """Get all the users"""
         return cls.all_users
 
     @classmethod
     def get_user(cls, name):
+        """Get user with given name"""
         return cls.all_users[name]
 
     @classmethod
     def change_user(cls):
+        """Change user fir the session"""
         print("\n".join(cls.all_users.keys()))
         while True:
             _new_user = input("\nEnter user name from the list:")
@@ -50,6 +61,7 @@ class UsersManager(object):
 
 
 class User(object):
+    """User class"""
 
     def __init__(self, name):
         self.name = name
@@ -62,5 +74,10 @@ class User(object):
         return self.name
 
     def add_roles(self, role: str):
+        """
+        Assign role to user
+        :param role: Role to assign to user
+        :return:
+        """
         self.roles.append(role)
 
