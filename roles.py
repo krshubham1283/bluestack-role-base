@@ -12,19 +12,19 @@ class RolesManager(object):
         Create a role taking user input
         :return:
         """
-        _role_name = input("\nEnter role name:")
+        _role_name = input("\nEnter role name and press enter:")
         _all_resources = cls._get_resources().keys()
         while True:
-            print(", ".join(_all_resources))
-            _resource = input("Enter a resource:")
+            print("\n".join(_all_resources))
+            _resource = input("\nEnter a resource and press enter:")
             if _resource in _all_resources:
                 break
             else:
-                print("\n Please select valid resource\n")
+                print("\n Please select valid resource")
         print(
-            "Allowed Actions: {}\n".format(", ".join(ALLOWED_ACTIONS))
+            "\nAllowed Actions: {}".format(", ".join(ALLOWED_ACTIONS))
         )
-        _allowed_action = input("Give comma separated list of actions:").split(",")
+        _allowed_action = input("\nGive comma separated list of actions:").split(",")
         _save_actions = filter(lambda x: x in ALLOWED_ACTIONS, _allowed_action)
         if _save_actions:
             cls.save_role(_role_name, _resource, _allowed_action)
