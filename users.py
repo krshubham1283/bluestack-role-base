@@ -10,7 +10,7 @@ class UsersManager(object):
     def create_user(cls):
         """Create user by user input"""
         while True:
-            _user_name = input("\nEnter User Name:").strip()
+            _user_name = input("\nEnter User Name and press enter:").strip()
             if len(_user_name) > 0:
                 break
             else:
@@ -49,10 +49,11 @@ class UsersManager(object):
 
     @classmethod
     def change_user(cls):
-        """Change user fir the session"""
+        """Change user for the session"""
+        print("\nAll Users List\n")
         print("\n".join(cls.all_users.keys()))
         while True:
-            _new_user = input("\nEnter user name from the list:")
+            _new_user = input("\nEnter user name from the list and press enter:")
             if _new_user in cls.all_users.keys():
                 break
             else:

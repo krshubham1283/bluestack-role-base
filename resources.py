@@ -46,8 +46,9 @@ class ResourceManager(object):
         """
         while True:
             print("\nEnter \"back\" to go to previous menu.")
+            print("\nAll Resources\n")
             print("\n".join(cls.resources_list.keys()))
-            _resource = input("\nSelect a resource:")
+            _resource = input("\nType resource name and press enter (PLease type exactly same name):")
             if _resource == "back":
                 break
             elif _resource in cls.resources_list.keys():
@@ -66,9 +67,12 @@ class ResourceManager(object):
         """
         _allowed_actions = RolesManager.get_allowed_actions(resource=resource, role_names=user_role)
         print("\nEnter \"back\" to go to previous menu.")
-        print("\nAllowed actions: " + ", ".join(_allowed_actions))
+        if len(_allowed_actions) > 0:
+            print("\nAllowed actions: " + ", ".join(_allowed_actions))
+        else:
+            print("\nYou are not allowed to take any action on this resource")
         while True:
-            action = input("\nEnter action: ")
+            action = input("\nType action and press enter: ")
             if action == "back":
                 break
             elif action in _allowed_actions:
