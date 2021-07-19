@@ -9,8 +9,9 @@ Required python3 for the project
 2. Initialise the program using python3: python3 main.py
 
 # After Initialisation
-1. One role created (admin) with all the access to all the resources
-2. One "Admin" user created with the admin role
+1. One role created (admin) with all the access to all the resources.
+2. One "Admin" user created with the admin role.
+3. Four resources will be created which are mentioned in the constants.py file.
 
 # Assumptions
 1. Only admin can create another user and more role.
