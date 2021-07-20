@@ -20,7 +20,7 @@ while True:
         "\nType 2 & Press Enter -- Change User"
     )
 
-    if current_user.name == "Admin":
+    if "admin" in current_user.roles:
         _welcome_str += ("\nType 3 & Press Enter -- Create User"
                          "\nType 4 & Press Enter -- Create Role")
 
@@ -36,9 +36,9 @@ while True:
     elif user_input == "2":
         current_user = UsersManager.change_user()
         print("\nWelcome!! {}".format(current_user))
-    elif user_input == "3":
+    elif user_input == "3" and "admin" in current_user.roles:
         UsersManager.create_user()
-    elif user_input == "4":
+    elif user_input == "4" and "admin" in current_user.roles:
         RolesManager.create_role()
     else:
         print("Please choose valid option")
